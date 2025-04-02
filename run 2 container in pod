@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: himanshu
+      image: nginx
+      ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dbapp
+spec:
+  containers:
+    - name: himanshu
+      image: redis
+      ports:
+        - containerPort: 80
