@@ -1,0 +1,17 @@
+kubectl get pods --show-labels  ==>> to show the tables
+
+kubectl get pods -L instance -L env -L component   ==>> show in column format
+
+kubectl get pods -l "component=webapp"   ==>> find pods with webapp componant
+
+kubectl get pods -l "component=database, instance=mysqlapp"   ==>> find pods with database component and mysqlapp instance
+
+kubectl get pods -l "component=webapp, instance!=nginxserver"  ==>> component is webapp but instance should not be nginx server
+
+kubectl get pods -l "component in (webapp)"  ==>> show me pods with component with webapp
+
+kubectl get pods -l "component not in (database)"   ==>> show me pods without component database
+
+kubectl get pods -l "instance=apacheserver"  ==>> get pods with instance label to apacheserver
+
+kubectl delete pods -l "instance=apacheserver"   ==>> delete pods with instance = apacheserver labels
