@@ -1,0 +1,19 @@
+                                           Kubernetes Architecture
+                                           
+Install kubectl bash completion
+
+source <(kubectl completion bash) # configuração de autocomplete no bash do shell atual, o pacote bash-completion precisa ter sido instalado primeiro.
+echo "source <(kubectl completion bash)" >> ~/.bashrc # para adicionar o autocomplete permanentemente no seu shell bash.
+
+                                        <<===Practical  ==>>
+                                        
+change node ip to host which we have given manually adaptor because in default it is showing nat ip
+
+sudo vim /var/lib/kubelet/kubeadm-flags.env
+
+--node-ip=10.0.0.100   ==>> add this
+
+save file
+
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet.service
