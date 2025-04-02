@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flipkartapp
+  labels:
+    name: nginxapp
+    instance: nginxserver
+    version: "1.0.3"
+    component: webapp
+    part-of: webserver
+    managed-by: "devops_team"
+spec:
+  containers:
+    - name: nginxserver
+      image: nginx
+      ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: databaseapp
+  labels:
+    name: mysqldb
+    instance: mysqlapp
+    version: "2.3.6"
+    component: database
+    part-of: wordpress
+    managed-by: "database_developer"
+spec:
+  containers:
+    - name: mysqlcontainer
+      image: mysql
+      ports:
+        - containerPort: 3306
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root    
