@@ -1,0 +1,28 @@
+Best Efforts==>> No mention of cpu and memory in yaml, kubernetes will try to give its best but no number committed
+
+compute is given from left over
+
+********************************************************************
+
+Burstable==>> Mention of cpu and memory in yaml 
+
+Request is guaranteed & in given at pod startup, Request is used by schedular, schedular will look for request value, schedular will not looks its limit
+
+limits > request
+
+**************************************************************************
+
+Guaranteed ==>> Mention of cpu and memory in yaml
+
+limit = request
+
+**********************************************************************************
+
+Q- What kind of application we can deploy in Best Efforts ?
+Ans- Where we don't care about performance, run it in best efforts
+
+Q- What kind of application we can deploy in brustable?
+Ans- Imp/critical application, (Load Pattern) we already know when 50 user will come, example- book my show
+
+Q- What kind of application we can deploy in guaranteed?
+Ans- Imp application, very critical application, might be you have committed sla or customer I dont care I want consistent performance, I don't want that when I want additionl compute might be will be a problem with datacentre
