@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  labels:
+    app: apache
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+      - name: nginx
+        image: lovelearnlinux/webserver:v1
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-deployment-service
+spec:
+  selector:
+    app: apache
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
