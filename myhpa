@@ -19,3 +19,6 @@ spec:
       target:
         type: Utilization
         averageUtilization: 10
+# now increase the load
+# while true; do curl http://service-ip-address ; done
+
